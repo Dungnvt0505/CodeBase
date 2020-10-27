@@ -128,15 +128,34 @@ console.log(changeInToAdmin(library));
 
 /** dùng lodash */
 function changeInToAdminUseLodash(listBook: Array<any>): Array<any> {
-    let newLibrary : Array<any> =[]
-    for (let i = 0; i < listBook.length; i++) {
-        let object = _.mapKeys(listBook[i],function(value:any,key:any) {
-            return 'admin_'+ key
-        })
-       newLibrary[newLibrary.length] = object;
-   }
+  let newLibrary : Array<any> =[]
 
-    return newLibrary
+/** không dùng reduce */
+//     for (let i = 0; i < listBook.length; i++) {
+//         let object = _.mapKeys(listBook[i],function(value:any,key:any) {
+//             return 'admin_'+ key
+//         },{})
+//        newLibrary[newLibrary.length] = object;
+//    }
+// return newLibrary
+// }
+ 
+/** dùng reduce và concat */
+//  newLibrary= _.reduce(listBook,function(newArray: Array<any>,x: any){
+// return _.concat(newArray,_.mapKeys(x,function(value:any,key:any) {
+//           return 'admin_'+ key
+//       },{}))
+// },[])
+// return newLibrary
+// }
+
+/** dùng reducer và spread */
+newLibrary= _.reduce(listBook,function(newArray: Array<any>,x: any){
+  return [...newArray,_.mapKeys(x,function(value:any,key:any) {
+            return 'admin_'+ key
+        },{})]
+  },[])
+  return newLibrary
 }
 
 console.log(changeInToAdminUseLodash(library));

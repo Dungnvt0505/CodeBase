@@ -117,13 +117,14 @@ ví dụ : name = person.fullName();
     * gồm các node, được liên kết với nhau qua các cạnh (edge)
     * root node: node gốc là gốc không có node cha
     * parent node: node cha của node hiện tại
-    * child node: node con của node hiện tại
+    * child node: các node con của node hiện tại
     * leaf: node lá là node không có con
-    * path: đường đi từ node này tới node kia
+    * path: đường đi từ root tới node hiện tại
     * subling: là các node con có cùng cha
     * height of tree: chiều cao của cây là đường đi dài nhất từ root tới lá
     * height of node: chiều cao của node là đường đi dài nhất từ node hiện tại tới lá
     * depth of node: đường đi từ root tới node hiện tại
+
 # Binary Search Tree
 	Cây nhị phân tìm kiếm
 1. Đặc điểm
@@ -136,3 +137,17 @@ là cây mà mỗi node có thể có tối đa 2 node con, và node bên trái 
     * findMax/Min: tìm node lớn/nhỏ nhất
         * min thì tìm lá trái nhất, max thì tìm nhánh phải nhất
     * remove: xoá 1 node
+        * TH1:  node đó là lá ( tức là không có node con) thì return null
+        * TH2: node đó không có node phải, chỉ có node trái,  return node trái
+        * TH3: node đó không có node trái, chỉ có node phải, return node phải
+        * TH4: có cả 2 node: 
+                        - tìm node trái nhất (node X) của nhánh bên phải node đó, để thay thế giá trị node xoá, vì node đó thoả mãn tính chất của node bị xoá
+	                - đổi giá trị của node cần xoá với node X đó
+	                - gọi đệ qui để xoá node X ra khỏi cây 	
+
+# DFS Tìm kiếm theo chiều sâu trong cây hoặc đồ thị
+        * Ý tưởng: bắt đầu từ root của cây(hoặc đồ thị) đi tới node tiếp theo tới khi tìm được node cần tìm hoặc không đi được nữa thị quay lui về đỉnh trước đó, chuyển sang node bên cạnh và tiếp tục tìm kiếm
+        * Sử dụng stack (ngăn xếp) để lưu thông tin các đỉnh trong quá trình tìm kiếm: khi duyệt 1 đỉnh mới thì push nó vào stack, đỉnh nào đã duyệt mà không có node con nào thì pop ra khỏi stack
+# BFS Tìm kiếm theo chiều rộng trong cây hoặc đồ thị
+        * Ý tưởng: bắt đầu từ root, duyệt qua tất cả các node con của 1 node (tức là theo chiều rộng), nếu không tìm thấy node cần tìm, thì tiếp tục làm tương tự với các node con đó
+        * Sử dụng Queue (hàng đợi) để lưu thông tin các đỉnh đang đợi duyệt, khi duyệt tới 1 node thì cho các con của nó vào hàng đợi, và đẩy node cha đó ra khỏi hàng đợi

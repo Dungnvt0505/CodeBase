@@ -158,5 +158,5 @@ newLibrary= _.reduce(listBook,function(newArray: Array<any>,x: any){
   return newLibrary
 }
 
-console.log(changeInToAdminUseLodash(library));
+console.log(changeInToAdminUseLodash(library))
 

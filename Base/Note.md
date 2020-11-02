@@ -78,6 +78,7 @@
                 map tạo ra mảng mới từ mảng cũ qua [callback]
                 forEach thay đổi mảng cũ qua [callback]
 
+
 # Function xử lí mảng không có trong Lodash
 1. Array.from
    * tạo ra 1 mảng mới từ các đối tượng giống mảng ( có độ dài và mô tả vè đối tượng) hoặc các đối tượng khả duyệt ( nghĩa là đối tượng có khả năng duyệt qua được)
@@ -153,7 +154,7 @@ ví dụ : name = person.fullName();
 # Binary Search Tree
 	Cây nhị phân tìm kiếm
 1. Đặc điểm
-là cây mà mỗi node có thể có tối đa 2 node con, và node bên trái nhỏ hơn node cha, node bên phải lớn hơn node cha, ( kể cả cây con cũng phải đảm bảo tính chất đó) .
+là cây mà mỗi node có thể có tối đa 2 node con, và node bên trái nhỏ hơn node cha, node bên phải lớn hơn node cha, (kể cả cây con cũng phải đảm bảo tính chất đó) .
 2. Các phương thức chính:
     * add: thêm node
         * nếu chưa có cây thì lấy node đó làm gốc, nếu đã có cây, thì so sánh node đó với node hiện tại, nếu nhỏ hơn currentNode thì thêm bên trái, nếu lơn hơn currentNode thì thêm bên phải
@@ -170,3 +171,18 @@ là cây mà mỗi node có thể có tối đa 2 node con, và node bên trái 
 	                    - đổi giá trị của node cần xoá với node X đó
 	                    - gọi đệ qui để xoá node X ra khỏi cây 	
 
+# Sort
+        1 số thuật toán sắp xếp (tăng dần)
+1. Bubble Sort
+ * ý tưởng: duyệt 2 phần tử liên tiếp, nếu trái lớn hơn phải thì đổi chỗ.
+2. Selection Sort
+ * ý tưởng: chọn phần tử nhỏ nhất cho lên đầu, làm tương tự với phần còn lại của mảng.
+3. Quick Sort
+ * ý tưởng: chọn phần tử giữa mảng làm mốc, chuyển các phần tử nhỏ hơn mốc sang trái, lớn hơn mốc sang phải, làm tương tự với 2 bên trái phải đến hết.
+
+# JSON
+1. JSON là viết tắt của JavaScript Object Notation: là một kiểu định dạng dữ liệu đặc biệt tuân theo một số quy tặc nhất định, có thể được đọc bởi hầu hết các ngôn ngữ lập trình hiện nay.
+ * JSON có cấu trúc dạng Object, sử dụng các cặp key-value
+ * JSON method:
+        JSON.parse(temp): chuyển đổi temp sang object từ dạng JSON
+        JSON.stringify(temp): chuyển đổi temp sang string để lưu dưới dạng JSON

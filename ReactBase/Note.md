@@ -1,6 +1,20 @@
-
-
-
+# State & Props
+1. Sự  khác biệt giữa props vs state
+* props(viết tắt của “thuộc tính”) và state đều là các đối tượng JavaScript thuần túy. Mặc dù cả hai đều nắm giữ thông tin ảnh hưởng đến đầu ra của kết xuất, nhưng chúng khác nhau ở một điểm quan trọng: props được truyền cho thành phần (tương tự như các tham số hàm) trong khi stateđược quản lý trong thành phần (tương tự như các biến được khai báo trong một hàm).
+2. Tại sao setState lại cho ra giá trị sai
+* Trong React, cả hai this.props và this.state đại diện cho các giá trị được hiển thị (rendered values) , tức là những gì hiện trên màn hình.
+Các cuộc gọi đến setState là không đồng bộ - không dựa vào this.state để phản ánh giá trị mới ngay sau khi gọi setState. Truyền một function cập nhật thay cho một object nếu bạn cần tính toán các giá trị dựa trên trạng thái hiện tại, bởi vì function update cho phép truy cập các giá trị hiện tại
+3. Vị trí khai báo biến trong state có làm cho biến thay đổi
+    // funcTest để trong DidMount
+    funcTest = () => {
+        const {show} = this.state // lấy giá trị show khi DidMount
+        setTimeout(() => {
+            const {show} = this.state // lấy giá trị show sau 5s khi chạy function bên trong setTimeout
+            this.setState({  show: !show }, () => {
+                const {show} = this.state
+            }) // lấy giá trị show sau khi đã setState, vì callback trong setState chạy sau khi đã setState xong
+        }, 5000);
+    }
 
 
 # Hook (react ver 16.8)

@@ -168,8 +168,8 @@ là cây mà mỗi node có thể có tối đa 2 node con, và node bên trái 
         * TH3: node đó không có node trái, chỉ có node phải, return node phải
         * TH4: có cả 2 node: 
                         - tìm node trái nhất (node X) của nhánh bên phải node đó, để thay thế giá trị node xoá, vì node đó thoả mãn tính chất của node bị xoá
-	                    - đổi giá trị của node cần xoá với node X đó
-	                    - gọi đệ qui để xoá node X ra khỏi cây 	
+	                - đổi giá trị của node cần xoá với node X đó
+	                - gọi đệ qui để xoá node X ra khỏi cây 	
 
 # Sort
         1 số thuật toán sắp xếp (tăng dần)
